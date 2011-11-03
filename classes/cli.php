@@ -70,4 +70,14 @@ class Cli {
 		
 		return trim(fgets(STDIN));
 	}
+	
+	/**
+	 * Beeps a certain number of times.
+	 *
+	 * @param	int $num	the number of times to beep
+	 */
+	public static function beep($num = 1)
+	{
+		echo str_repeat("\x07", $num);
+	}
 }

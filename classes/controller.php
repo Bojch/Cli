@@ -27,7 +27,9 @@ class Controller
 		}
 		else
 		{
-			eval("\$str = \"".$class."\";");
+			$str = "";
+			eval('$str='.$class.';');
+
 			return $str;
 		}
 		

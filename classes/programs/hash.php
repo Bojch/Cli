@@ -42,10 +42,9 @@ Runtime options (sha1):
 Examples:
   hash sha1 <options> <string>
   hash md5 <options> <string>
-  
 HELP;
 
-		Cli::write($output);
+		return $output;
 	}
 	
 	private static function parameters(&$str, &$opt)
