@@ -13,28 +13,22 @@ class Controller
 			return NULL;
 		}
 		
-		$class = "";
-		$fnc = "help";
-		$param = "";
+		$class = array_shift($params);// (isset($params[0]))? $params[0] : "";
+		$fnc = array_shift($params); //(isset($params[1]))? $params[1] : "help";
+		$param = $params; //(isset($params[3]))? $params[3] : "";
 		
-		if(isset($params[0]))
-		{
-			$class = $params[0];
-			
-			if(isset($params[1]))
-			{
-				$fnc = $params[1];
-				
-				if(isset($params[2]))
-				{
-					$param = trim($params[2]);
-				}
-			}
-		}
-		
-		if(class_exists($class))
+		if(class_exists($class) AND method_exists($class,$fnc))
 		{
 			return $class::$fnc($param);
+		}
+		else if(class_exists($class))
+		{
+			return $class::help();
+		}
+		else
+		{
+			eval("\$str = \"".$class."\";");
+			return $str;
 		}
 		
 		return NULL;

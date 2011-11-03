@@ -2,11 +2,6 @@
 
 class Time implements Programs
 {
-	public static function index($arg = "")
-	{
-		return "to je index";
-	}
-	
 	public static function timestamp()
 	{
 		return time();
