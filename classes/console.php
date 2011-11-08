@@ -23,6 +23,7 @@ class Console
 			// finish
 			if($line == "quit" OR $line == "q")
 			{
+				Cli::write('Goodbye');
 				break;
 			}
 			
