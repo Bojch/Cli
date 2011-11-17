@@ -2,6 +2,11 @@
 
 class Db implements Programs
 {
+	public static function index($fnc, $param)
+	{
+		return "index";
+	}
+	
 	public static function connect(Array $param)
 	{
 		$err = FALSE;
@@ -38,6 +43,7 @@ Usage:
 
 Examples:
   db connect localhost:3306 root
+  
 HELP;
 
 		return $output;
