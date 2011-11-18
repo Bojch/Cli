@@ -6,12 +6,14 @@ class Controller
 	protected $_function = '';
 	protected $_parameters = '';
 	
-	public static function con($params)
+	public static function con($line)
 	{
-		if(! is_array($params) OR empty($params))
+		if(empty($line))
 		{
 			return NULL;
 		}
+		
+		$params = explode(" ", $line);
 		
 		$class = array_shift($params);
 		$fnc = array_shift($params);
@@ -27,29 +29,27 @@ class Controller
 		}
 		else
 		{
-			$code = '$str = '.$class.';';
+			//return FALSE;
 			
-			eval($code);
-			
-			return $str;
-			/*
 			$str = "";
 			
 			ob_start();
 			
-			$code = '$str = '.$class.';';
-			$code .= 'return TRUE;';
+			$ret = eval("$line;");
 			
-			if(FALSE === eval($code))
+			//echo $ret;
+			// Error was returned
+			if ($ret === false)
 			{
-				Cli::write("JEah!!");	
+				Cli::write('Parse Error - ' . $line);
+				Cli::beep();
 			}
-			$err = ob_get_contents();
+			
+			$out = ob_get_contents();
 			
 			ob_end_clean();
 			
-			return $err;
-			 */
+			//echo $ret;
 		}
 		
 		return NULL;

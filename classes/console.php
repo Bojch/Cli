@@ -27,7 +27,7 @@ class Console
 				break;
 			}
 			
-			if($out = Controller::con(explode(" ", $line)))
+			if($out = Controller::con($line))
 			{
 				Cli::write($out);
 				Cli::new_line();
