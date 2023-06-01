@@ -5,7 +5,7 @@ name: Clone other Repo
 on:
   pull_request:
     branches:
-      - main
+      - master
 
 env:
   NODE_VERSION: "18.15"
