@@ -1,0 +1,28 @@
+# This workflow is used to run unit tests.
+
+name: Clone other Repo
+
+on:
+  pull_request:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: "18.15"
+
+jobs:
+  update:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@v3
+
+      - name: Checkout seconds-formater repo
+        uses: actions/checkout@v3
+        with:
+          repository: bojangles-m/seconds-formater
+          path: formater
+          ref: main
+          token: ${{ secrets.SENTRY_AUTH_TOKEN }}
