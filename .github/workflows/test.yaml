@@ -24,5 +24,5 @@ jobs:
         with:
           repository: bojangles-m/seconds-formater
           path: formater
-          ref: main
+          ref: master
           token: ${{ secrets.SF_ACCESS }}
