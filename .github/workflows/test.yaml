@@ -25,4 +25,5 @@ jobs:
           repository: bojangles-m/seconds-formater
           path: formater
           ref: master
-          token: ${{ secrets.SF_ACCESS }}
+        env:
+          SF_ENV_ACCESS: ${{ secrets.SF_ENV_SECRET }}
