@@ -25,4 +25,4 @@ jobs:
           repository: bojangles-m/seconds-formater
           path: formater
           ref: main
-          token: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          token: ${{ secrets.SENTRY_AUTH_TOKEN1 }}
